@@ -1,0 +1,589 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  color-scheme: dark;
+  font-family: Inter, system-ui, sans-serif;
+  background: #0d1117;
+  color: #f4f7fb;
+}
+
+body {
+  min-height: 100vh;
+  background: radial-gradient(circle at top left, rgba(58, 127, 255, 0.16), transparent 32%),
+    radial-gradient(circle at bottom right, rgba(153, 62, 255, 0.2), transparent 28%),
+    #05070d;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.site-header {
+  position: relative;
+  overflow: hidden;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.brand {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #5d8cff, #7b5bff);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.12);
+}
+
+.main-nav {
+  display: flex;
+  gap: 0.85rem;
+}
+
+.nav-icon,
+.search-btn,
+.hero-button,
+.social-button,
+.card-symbol,
+.contact-badge,
+.footer-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.05);
+  transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.nav-icon:hover {
+  background: rgba(255, 255, 255, 0.14);
+  transform: translateY(-2px);
+}
+
+.search-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.search-panel {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(2, 5, 12, 0.88);
+  backdrop-filter: blur(14px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 240ms ease;
+  z-index: 20;
+}
+
+.search-panel.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.search-panel-inner {
+  width: min(520px, 90%);
+  padding: 2rem;
+  border-radius: 30px;
+  background: rgba(12, 17, 28, 0.96);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 32px 100px rgba(0, 0, 0, 0.3);
+  display: grid;
+  gap: 1rem;
+}
+
+.search-input {
+  width: 100%;
+  padding: 1.15rem 1.4rem;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+  color: #f4f7fb;
+  font-size: 1rem;
+}
+
+.search-input::placeholder {
+  color: rgba(244, 247, 251, 0.45);
+}
+
+.search-close {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.05);
+  justify-self: end;
+}
+
+.hero {
+  min-height: 72vh;
+  display: grid;
+  place-items: center;
+  position: relative;
+  padding: 3rem 2rem 4rem;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(70, 102, 255, 0.18), transparent 38%);
+  pointer-events: none;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(180deg, rgba(6, 8, 15, 0.14), rgba(6, 8, 15, 0.9));
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  width: min(1120px, 100%);
+}
+
+.hero-panel {
+  display: grid;
+  grid-template-columns: minmax(260px, 1fr) minmax(240px, 340px);
+  gap: 2rem;
+  align-items: end;
+}
+
+.hero-visual {
+  aspect-ratio: 16 / 9;
+  border-radius: 28px;
+  background: linear-gradient(140deg, rgba(100, 134, 255, 0.35), rgba(95, 241, 255, 0.18));
+  box-shadow: 0 30px 90px rgba(19, 30, 61, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-visual::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), transparent 55%);
+}
+
+.hero-buttons {
+  display: grid;
+  gap: 1rem;
+  justify-content: start;
+}
+
+.hero-button {
+  width: 100%;
+  height: 56px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, rgba(80, 150, 255, 0.96), rgba(70, 55, 255, 0.88));
+  border: none;
+  box-shadow: 0 16px 40px rgba(34, 48, 78, 0.35);
+}
+
+.hero-button.secondary {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+main {
+  width: min(1180px, 100%);
+  margin: 0 auto;
+  padding: 0 2rem 3rem;
+}
+
+.hero {
+  padding: 3rem 2rem 4rem;
+}
+
+.hero-button {
+  min-width: 180px;
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin-top: -4rem;
+  position: relative;
+  z-index: 2;
+}
+
+.service-card {
+  display: grid;
+  gap: 1rem;
+  padding: 1.4rem;
+  border-radius: 28px;
+  background: rgba(11, 16, 28, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 22px 60px rgba(6, 9, 18, 0.32);
+}
+
+.reservation-section {
+  margin-top: 2rem;
+}
+
+.reservation-card {
+  padding: 2rem;
+  border-radius: 32px;
+  background: rgba(11, 16, 28, 0.96);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 28px 80px rgba(6, 9, 18, 0.28);
+}
+
+.reservation-header {
+  display: grid;
+  gap: 0.75rem;
+  margin-bottom: 1.75rem;
+}
+
+.section-label {
+  display: inline-flex;
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  background: rgba(81, 143, 255, 0.16);
+  color: #8db5ff;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.reservation-header h2 {
+  font-size: clamp(1.4rem, 2vw, 2rem);
+}
+
+.reservation-form {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.form-group {
+  display: grid;
+  gap: 0.7rem;
+}
+
+.form-label {
+  font-size: 0.95rem;
+  color: rgba(244, 247, 251, 0.82);
+}
+
+.form-input {
+  width: 100%;
+  min-height: 52px;
+  padding: 0.95rem 1rem;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.05);
+  color: #f4f7fb;
+}
+
+.service-options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+.service-option {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.15rem;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  cursor: pointer;
+  transition: border-color 180ms ease, transform 180ms ease;
+}
+
+.service-option input {
+  accent-color: #5d8cff;
+}
+
+.service-option:hover {
+  transform: translateY(-1px);
+}
+
+.service-option input:checked + span {
+  color: #fff;
+  font-weight: 600;
+}
+
+.reserve-button {
+  width: fit-content;
+  padding: 1rem 1.8rem;
+  border-radius: 999px;
+  border: none;
+  background: linear-gradient(135deg, rgba(80, 150, 255, 0.96), rgba(70, 55, 255, 0.88));
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.reserve-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 40px rgba(43, 80, 206, 0.28);
+}
+
+.card-photo {
+  height: 180px;
+  border-radius: 22px;
+  background: linear-gradient(135deg, rgba(135, 204, 255, 0.2), rgba(150, 100, 255, 0.12));
+}
+
+@media (max-width: 920px) {
+  .hero-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-buttons {
+    justify-items: stretch;
+  }
+
+  .reservation-card,
+  .contact-card,
+  .social-row,
+  .footer-block {
+    padding: 1.5rem;
+  }
+
+  .service-options {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 680px) {
+  .topbar,
+  .hero-panel,
+  .contact-section,
+  .reservation-form {
+    grid-template-columns: 1fr;
+  }
+
+  .topbar {
+    align-items: flex-start;
+    padding: 1rem 1.2rem;
+  }
+
+  .hero {
+    padding: 2rem 1.2rem 3rem;
+  }
+
+  .hero-buttons {
+    gap: 0.9rem;
+  }
+
+  .main-nav {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .service-grid {
+    margin-top: 0;
+    gap: 1rem;
+  }
+
+  .reservation-card,
+  .contact-card,
+  .social-row,
+  .footer-block {
+    border-radius: 24px;
+  }
+
+  .form-input {
+    min-height: 48px;
+  }
+
+  .reserve-button {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .brand,
+  .nav-icon,
+  .search-btn {
+    width: 42px;
+    height: 42px;
+  }
+
+  .hero {
+    min-height: auto;
+  }
+
+  .reservation-card {
+    padding: 1.3rem;
+  }
+
+  .reservation-header h2 {
+    font-size: 1.5rem;
+  }
+
+  .section-label {
+    padding: 0.35rem 0.75rem;
+    font-size: 0.8rem;
+  }
+
+  .reserve-button {
+    padding: 0.95rem 1rem;
+  }
+}
+
+.card-body {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.card-symbol {
+  width: 56px;
+  height: 56px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, rgba(255, 203, 107, 0.2), rgba(255, 128, 128, 0.14));
+}
+
+.line {
+  height: 14px;
+  width: 100%;
+  border-radius: 999px;
+  
+}
+
+.line.short {
+  width: 100%;
+}
+
+.contact-section {
+  display: grid;
+  grid-template-columns: minmax(220px, 360px) minmax(auto, 1fr);
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.contact-card,
+.social-row {
+  display: grid;
+  gap: 1rem;
+  padding: 1.5rem;
+  border-radius: 28px;
+  background: rgba(6, 9, 18, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.contact-badge {
+  width: 60px;
+  height: 60px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, rgba(233, 129, 255, 0.3), rgba(94, 173, 255, 0.3));
+}
+
+.contact-lines .line {
+  height: 16px;
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.social-row {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.social-button {
+  height: 72px;
+  border-radius: 22px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.map-section {
+  margin-top: 2rem;
+  border-radius: 32px;
+  overflow: hidden;
+  box-shadow: 0 30px 90px rgba(9, 11, 17, 0.35);
+}
+
+.map-section iframe {
+  width: 100%;
+  height: 420px;
+  border: 0;
+}
+
+.site-footer {
+  margin-top: 2rem;
+  padding: 1.5rem 0;
+}
+
+.footer-block {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  border-radius: 24px;
+  background: rgba(11, 15, 24, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.footer-icon {
+  width: 54px;
+  height: 54px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, rgba(106, 255, 191, 0.2), rgba(106, 189, 255, 0.16));
+}
+
+.footer-text {
+  display: grid;
+  gap: 0.75rem;
+}
+
+@media (max-width: 860px) {
+  .topbar,
+  .hero-panel,
+  .contact-section {
+    grid-template-columns: 1fr;
+  }
+
+  .topbar {
+    align-items: flex-start;
+  }
+
+  .hero {
+    padding-top: 2rem;
+  }
+
+  .service-grid {
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 520px) {
+  .topbar,
+  .hero-buttons,
+  .social-row,
+  .contact-section {
+    gap: 0.9rem;
+  }
+
+  .main-nav {
+    flex-wrap: wrap;
+  }
+}

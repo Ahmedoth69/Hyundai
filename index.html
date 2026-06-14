@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hyundai Manouba</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init({
+        publicKey: "wC8hdAs3Fa_u2BUM4",
+      });
+   })();
+</script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="topbar">
+      <a class="brand" href="#" aria-label="Brand"></a>
+      <nav class="main-nav" aria-label="Primary navigation">
+        <a href="index.html" class="nav-icon" aria-label="Accueil"></a>
+        <a href="History.html" class="nav-icon" aria-label="Historique"></a>
+        <a href="Team.html" class="nav-icon" aria-label="Équipe"></a>
+        <a href="Questions.html" class="nav-icon" aria-label="Questions fréquentes"></a>
+      </nav>
+      <button class="search-btn" aria-label="Search"></button>
+    </div>
+    <div class="search-panel" id="searchPanel" aria-hidden="true">
+      <div class="search-panel-inner">
+        <button class="search-close" type="button" aria-label="Close search"></button>
+        <input id="searchInput" class="search-input" type="search" placeholder="Search" aria-label="Search input" />
+      </div>
+    </div>
+    <div class="hero">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <div class="hero-panel">
+          <div class="hero-visual"></div>
+          <div class="hero-buttons">
+            <p>  “Un service fiable pour garantir performance et sécurité de votre véhicule.”</p>
+            <a href="#services" class="hero-button">services</a>
+            <a href="#footer" class="hero-button secondary">contact</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="services" class="service-grid">
+      <article class="service-card">
+        <div class="card-photo"></div>
+        <div class="card-body">
+          <div class="card-symbol"></div>
+          <div class="line">🔧	 Service Rapide</div>
+          <div class="line short"> <p>-Vidange moteur (huile + filtre)</p></div>
+          <div class="line"><p>-Changement filtres (air, habitacle, carburant)</p></div>
+        </div>
+      </article>
+      <article class="service-card">
+        <div class="card-photo"></div>
+        <div class="card-body">
+          <div class="card-symbol"></div>
+          <div class="line"></div>
+          <div class="line short"></div>
+          <div class="line"></div>
+        </div>
+      </article>
+      <article class="service-card">
+        <div class="card-photo"></div>
+        <div class="card-body">
+          <div class="card-symbol"></div>
+          <div class="line"></div>
+          <div class="line short"></div>
+          <div class="line"></div>
+        </div>
+      </article>
+      <article class="service-card">
+        <div class="card-photo"></div>
+        <div class="card-body">
+          <div class="card-symbol"></div>
+          <div class="line"></div>
+          <div class="line short"></div>
+          <div class="line"></div>
+        </div>
+      </article>
+    </section>
+
+    <section id="reservation" class="reservation-section">
+      <div class="reservation-card">
+        <div class="reservation-header">
+          <div>
+            <div class="section-label">Réservation</div>
+            <h2>Prendre rendez-vous</h2>
+          </div>
+          <p>Réservez une vidange ou une visite technique en quelques clics.</p>
+        </div>
+        <form class="reservation-form">
+          <div class="form-group">
+            <label for="User-name" class="form-label">Nom et Prenom</label>
+            <div class="Name-service">
+              <input type="text" name="Uname" id="Uname" placeholder="Votre nom et prenom " required class="form-input">
+            </div>
+            <label for="User-mail" class="form-label">Email</label>
+            <div class="email-service">
+              <input type="email" name="UserMail" id="UserMail" placeholder="Email " required class="form-input">
+            </div>
+            <label class="form-label">Service</label>
+            <div class="service-options">
+              <label class="service-option">
+                <input type="radio" name="service" value="vidange" checked />
+                <span>Vidange</span>
+              </label>
+              <label class="service-option">
+                <input type="radio" name="service" value="visit-technique" />
+                <span>Visite technique</span>
+              </label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="reservationDate">Date</label>
+            <input id="reservationDate" type="date" class="form-input" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="reservationTime">Heure</label>
+            <input id="reservationTime" type="time" class="form-input" required />
+          </div>
+          <button type="submit" class="reserve-button" id="send-btn">Réserver maintenant</button>
+        </form>
+      </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+      <div class="contact-card">
+        <div class="contact-badge"></div>
+        <div class="contact-lines">
+          <div class="line"></div>
+          <div class="line short"></div>
+        </div>
+      </div>
+      <div class="social-row">
+        <a href="#" class="social-button" aria-label="Facebook"></a>
+        <a href="#" class="social-button" aria-label="Instagram"></a>
+      </div>
+    </section>
+
+    <section class="map-section">
+      <iframe
+        src="https://www.google.com/maps/embed?origin=mfe&pb=!1m12!1m8!1m3!1d3193.5157540680366!2d10.049763!3d36.83012!3m2!1i1024!2i768!4f13.1!2m1!1s36.830089,10.049868!6i17!3m1!1sen-US!5m1!1sen-US"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Location map"
+      ></iframe>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="footer">
+    <div class="footer-block">
+      <div class="footer-icon"></div>
+      <div class="footer-text">
+        <div class="line">service hyundai Manouba</div>
+        <div class="line short">
+            <ul>
+                <li>Email : HyundaiManouba@gmail.com</li>
+            </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
